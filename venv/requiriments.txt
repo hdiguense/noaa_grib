@@ -1,0 +1,14 @@
+affine==2.3.0
+attrs==20.3.0
+click==7.1.2
+click-plugins==1.1.1
+cligj==0.7.1
+Flask==1.1.2
+GDAL @ file:///D:/noaa_grib/GDAL-3.1.4-cp38-cp38-win_amd64.whl
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+numpy==1.19.3
+pyparsing==2.4.7
+snuggs==1.4.7
+Werkzeug==1.0.1
