@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+</head>
+<body>
+<canvas id="myChart"></canvas>
+<script>
+var lluvia = {{lluvia}};
+var anios = {{anio}};
+var data = []
+for (i = 0; i < anios.length; i++) {
+var r = Math.floor(Math.random() * 256)
+var g = Math.floor(Math.random() * 256)
+var b = Math.floor(Math.random() * 256)
+var rgba = 'rgba(' + r.toString() + ',' + g.toString() + ',' + b.toString() + ', 1)'
+data.push({
+            label: anios[i],
+            data: lluvia[anios[i]],
+            fill: false,
+<!--            backgroundColor: 'rgba(220, 20, 60, 0)',-->
+            borderColor: rgba,
+            //borderWidth: 1
+        })
+};
+
+//const year = new Date().getFullYear();
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        datasets: data
+    },
+    options: {
+        responsive: true,
+        hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+        tooltips: {
+			mode: 'index',
+			intersect: false,
+		},
+        scales: {
+						xAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Mes'
+							}
+						}],
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Lluvia (mm)'
+							}
+						}]
+					}
+    }
+});
+</script>
+</body>
+</html>
